@@ -16,9 +16,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.MAIN_IMG_ANDROID)ImageView imageViewAndroid;
     @Bind(R.id.MAIN_BTN_SLIDEDOWN)Button btnSlideDown;
+    @Bind(R.id.MAIN_BTN_FADE)Button btnFade;
 
     //Animations
-    Animation animSlidedown;
+    private Animation animSlidedown;
+    private Animation animFadeOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupAnimations() {
         animSlidedown = AnimationUtils.loadAnimation(this, R.anim.slide_down);
+        animFadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
     }
 
     private void setupButtons() {
@@ -40,6 +43,16 @@ public class MainActivity extends AppCompatActivity {
                 slideDownAnimation();
             }
         });
+        btnFade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fadeOutAnimation();
+            }
+        });
+    }
+
+    private void fadeOutAnimation() {
+        imageViewAndroid.startAnimation(animFadeOut);
     }
 
     private void slideDownAnimation() {
