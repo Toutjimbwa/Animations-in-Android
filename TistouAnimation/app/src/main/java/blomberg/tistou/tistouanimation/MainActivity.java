@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     private Animation animSlidedown;
     private Animation animFadeOut;
 
+    // Hej hop
+    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
